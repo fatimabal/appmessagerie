@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+
+<HBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="client.ui.ChatController"
+      style="-fx-background-color: #1a1a2e;">
+
+    <!-- ═══════════ PANNEAU GAUCHE : liste des users ═══════════ -->
+    <VBox prefWidth="250"
+          style="-fx-background-color: #16213e;
+                 -fx-border-color: #00d4aa;
+                 -fx-border-width: 0 1 0 0;">
+
+        <!-- Header -->
+        <HBox alignment="CENTER_LEFT" spacing="10"
+              style="-fx-padding: 15; -fx-background-color: #0f3460;">
+            <Label text="💬 Messagerie"
+                   style="-fx-font-size: 16px; -fx-font-weight: bold;
+                          -fx-text-fill: #00d4aa;"/>
+        </HBox>
+
+        <!-- Username connecté -->
+        <HBox alignment="CENTER_LEFT" spacing="8"
+              style="-fx-padding: 10 15;">
+            <Label text="🟢"  style="-fx-font-size: 10px;"/>
+            <Label fx:id="currentUserLabel"
+                   style="-fx-text-fill: #cccccc; -fx-font-size: 13px;"/>
+        </HBox>
+
+        <Separator style="-fx-background-color: #333333;"/>
+
+        <Label text="Utilisateurs"
+               style="-fx-padding: 10 15 5 15;
+                      -fx-text-fill: #888888;
+                      -fx-font-size: 11px;"/>
+
+        <!-- Liste des utilisateurs -->
+        <ListView fx:id="usersListView"
+                  VBox.vgrow="ALWAYS"
+                  style="-fx-background-color: transparent;
+                         -fx-border-color: transparent;"/>
+
+        <!-- Bouton déconnexion -->
+        <Button text="🚪 Déconnexion"
+                maxWidth="Infinity"
+                onAction="#handleLogout"
+                style="-fx-background-color: #c0392b;
+                       -fx-text-fill: white;
+                       -fx-font-size: 13px;
+                       -fx-padding: 10;
+                       -fx-cursor: hand;"/>
+    </VBox>
+
+    <!-- ═══════════ PANNEAU DROIT : zone de chat ═══════════ -->
+    <VBox HBox.hgrow="ALWAYS">
+
+        <!-- Header de la conversation -->
+        <HBox alignment="CENTER_LEFT" spacing="10"
+              style="-fx-padding: 15; -fx-background-color: #0f3460;">
+            <Label fx:id="chatHeaderLabel"
+                   text="Sélectionnez un utilisateur"
+                   style="-fx-font-size: 15px; -fx-font-weight: bold;
+                          -fx-text-fill: white;"/>
+        </HBox>
+
+        <!-- Zone des messages -->
+        <ScrollPane fx:id="messagesScrollPane"
+                    VBox.vgrow="ALWAYS"
+                    fitToWidth="true"
+                    style="-fx-background-color: #1a1a2e;
+                           -fx-border-color: transparent;">
+            <VBox fx:id="messagesContainer"
+                  spacing="8"
+                  style="-fx-padding: 15;
+                         -fx-background-color: #1a1a2e;"/>
+        </ScrollPane>
+
+        <!-- Zone de saisie -->
+        <HBox spacing="10"
+              style="-fx-padding: 10; -fx-background-color: #16213e;">
+            <TextField fx:id="messageField"
+                       promptText="Écrivez un message..."
+                       HBox.hgrow="ALWAYS"
+                       onAction="#handleSend"
+                       style="-fx-background-color: #1a1a2e;
+                              -fx-text-fill: white;
+                              -fx-prompt-text-fill: #555555;
+                              -fx-border-color: #00d4aa;
+                              -fx-border-radius: 20;
+                              -fx-background-radius: 20;
+                              -fx-padding: 10 15;
+                              -fx-font-size: 14px;"/>
+            <Button text="➤"
+                    onAction="#handleSend"
+                    style="-fx-background-color: #00d4aa;
+                           -fx-text-fill: white;
+                           -fx-font-size: 16px;
+                           -fx-font-weight: bold;
+                           -fx-background-radius: 50;
+                           -fx-min-width: 45;
+                           -fx-min-height: 45;
+                           -fx-cursor: hand;"/>
+        </HBox>
+    </VBox>
+
+</HBox>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+
+        <!-- Connexion PostgreSQL -->
+        <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+        <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/messagerie</property>
+        <property name="hibernate.connection.username">postgres</property>
+        <property name="hibernate.connection.password">Passer</property>
+
+        <!-- Dialecte PostgreSQL -->
+        <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+
+        <!-- Création automatique des tables -->
+        <property name="hibernate.hbm2ddl.auto">update</property>
+
+        <!-- Afficher les requêtes SQL dans la console (debug) -->
+        <property name="hibernate.show_sql">true</property>
+        <property name="hibernate.format_sql">true</property>
+
+        <!-- Entités -->
+        <mapping class="entity.User"/>
+        <mapping class="entity.Message"/>
+
+    </session-factory>
+</hibernate-configuration>

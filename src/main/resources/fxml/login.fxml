@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="client.ui.LoginController"
+      alignment="CENTER"
+      spacing="15"
+      style="-fx-background-color: #1a1a2e; -fx-padding: 40;">
+
+    <!-- Logo / Titre -->
+    <Label text="💬 Messagerie"
+           style="-fx-font-size: 28px; -fx-font-weight: bold;
+                  -fx-text-fill: #00d4aa;"/>
+
+    <Label text="Connectez-vous pour continuer"
+           style="-fx-font-size: 13px; -fx-text-fill: #888888;"/>
+
+    <!-- Séparateur -->
+    <Region prefHeight="10"/>
+
+    <!-- Champ Username -->
+    <VBox spacing="5" maxWidth="300">
+        <Label text="Nom d'utilisateur"
+               style="-fx-text-fill: #cccccc; -fx-font-size: 12px;"/>
+        <TextField fx:id="usernameField"
+                   promptText="Entrez votre username"
+                   maxWidth="300"
+                   style="-fx-background-color: #16213e;
+                          -fx-text-fill: white;
+                          -fx-prompt-text-fill: #555555;
+                          -fx-border-color: #00d4aa;
+                          -fx-border-radius: 8;
+                          -fx-background-radius: 8;
+                          -fx-padding: 10;
+                          -fx-font-size: 14px;"/>
+    </VBox>
+
+    <!-- Champ Password -->
+    <VBox spacing="5" maxWidth="300">
+        <Label text="Mot de passe"
+               style="-fx-text-fill: #cccccc; -fx-font-size: 12px;"/>
+        <PasswordField fx:id="passwordField"
+                       promptText="Entrez votre mot de passe"
+                       maxWidth="300"
+                       style="-fx-background-color: #16213e;
+                              -fx-text-fill: white;
+                              -fx-prompt-text-fill: #555555;
+                              -fx-border-color: #00d4aa;
+                              -fx-border-radius: 8;
+                              -fx-background-radius: 8;
+                              -fx-padding: 10;
+                              -fx-font-size: 14px;"/>
+    </VBox>
+
+    <!-- Message d'erreur -->
+    <Label fx:id="messageLabel"
+           text=""
+           style="-fx-text-fill: #ff6b6b; -fx-font-size: 12px;"/>
+
+    <!-- Bouton Connexion -->
+    <Button fx:id="loginButton"
+            text="Se connecter"
+            maxWidth="300"
+            onAction="#handleLogin"
+            style="-fx-background-color: #00d4aa;
+                   -fx-text-fill: white;
+                   -fx-font-weight: bold;
+                   -fx-font-size: 14px;
+                   -fx-background-radius: 8;
+                   -fx-padding: 12;
+                   -fx-cursor: hand;"/>
+
+    <!-- Séparateur -->
+    <Label text="─────── ou ───────"
+           style="-fx-text-fill: #444444;"/>
+
+    <!-- Bouton Inscription -->
+    <Button fx:id="registerButton"
+            text="Créer un compte"
+            maxWidth="300"
+            onAction="#handleRegister"
+            style="-fx-background-color: transparent;
+                   -fx-text-fill: #00d4aa;
+                   -fx-font-size: 13px;
+                   -fx-border-color: #00d4aa;
+                   -fx-border-radius: 8;
+                   -fx-background-radius: 8;
+                   -fx-padding: 10;
+                   -fx-cursor: hand;"/>
+
+</VBox>
